@@ -42,26 +42,41 @@ void PtintArray(int[] array)
     }
     Console.WriteLine();
 }
-void selectionSort(int[] array)
+void selectionSortMinMax(int[] array)
 {
     for (int i = 0; i < array.Length - 1; i++)
     {
         int minPosition = i;
         for (int j = i + 1; j < array.Length; j++)
         {
-            if (array[j] <= array[minPosition]) minPosition = j;
-            {
-                minPosition = j;
-            }
+            if (array[j] < array[minPosition]) minPosition = j;
         }
         int temporary = array[i];
         array[i] = array[minPosition];
         array[minPosition] = temporary;
     }
 }
+
+void SelectionSortMaxMin(int[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int maxPosition = i;
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] > array[maxPosition]) maxPosition = j;
+        }
+        int temporary = array[i];
+        array[i] = array[maxPosition];
+        array[maxPosition] = temporary;
+    }
+}
+
 Console.WriteLine("Исходный массив:");
 PtintArray(arr);
-selectionSort(arr); // Запуск метода сортировки
+selectionSortMinMax(arr); // Запуск метода сортировки
 Console.WriteLine("Отсортированный массив от меньшего к большему значению:");
 PtintArray(arr);
-
+SelectionSortMaxMin(arr); // Запуск метода сортировки
+Console.WriteLine("Отсортированный массив от большего к меньшему значению:");
+PtintArray(arr);
